@@ -1,10 +1,31 @@
-Bolt Extension Starter
+Custom Upload Path
 ======================
 
-A starter skeleton for a Bolt v3.x Extension
+Lets you customize the upload path of a specific content with the option `upload_dir`. All fields in this specific content type using Bolt.cm upload functionality are using this custom path afterwards.
 
-To get going run the following command, replacing the last argument with the name of your extension:
 
-`composer create-project --no-install 'bolt/bolt-extension-starter:^3.0' <newextname>`  
+For example the following content type uploads the images/files to `galleries/{%slug%}`:
 
-For more information, see this page in the Bolt documentation: https://docs.bolt.cm/extensions/building-starter/about
+```yaml
+galleries:
+    name: Galleries
+    singular_name: Gallery
+    fields:
+        title:
+            type: text
+            group: "Gallery"
+        slug:
+            type: slug
+            uses: [ title ]
+        files:
+            type: filelist
+        images:
+            type: imagelist
+            extensions: [ jpg ]
+    show_on_dashboard: true
+    default_status: publish
+    searchable: false
+    upload_dir: galleries/{slug}/
+```
+
+In the example above the following variable are supported in the path: {slug}, {title}
