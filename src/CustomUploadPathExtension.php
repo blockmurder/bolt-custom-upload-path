@@ -25,11 +25,19 @@ class CustomUploadPathExtension extends SimpleExtension
 
               $contenttypeslug = $app['request']->get('contenttype');
 
-              $contentTypeConfig = $app['config']->get('contenttypes');
+              if(!empty($contenttypeslug))
+              {
+                  $contentTypeConfig = $app['config']->get('contenttypes')[$contenttypeslug];
 
-              $uploadDir = $contentTypeConfig[$contenttypeslug]['upload_dir'];
+                  $uploadDirKey = 'upload_dir';
 
-              if($uploadDir != "")
+                  if(array_key_exists($uploadDirKey, $contentTypeConfig))
+                  {
+                      $uploadDir = $contentTypeConfig[$uploadDirKey];
+                  }
+              }
+
+              if(isset($uploadDir) && !empty($uploadDir))
               {
                 $folders = explode("/", $uploadDir);
                 $prefix = "";
