@@ -4,7 +4,7 @@ Custom Upload Path
 Lets you customize the upload path of a specific content with the option `upload_dir`. All fields in this specific content type using Bolt.cm upload functionality are using this custom path afterwards.
 
 
-For example the following content type uploads the images/files to `galleries/{%slug%}`:
+For example the following content type uploads the images/files to `galleries/{slug}`:
 
 ```yaml
 galleries:
