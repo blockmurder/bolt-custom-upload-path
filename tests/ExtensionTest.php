@@ -1,27 +1,27 @@
 <?php
 
-namespace Bolt\Extension\YourName\ExtensionName\Tests;
+namespace Bolt\Extension\Blockmurder\CustomUploadPath\Tests;
 
 use Bolt\Tests\BoltUnitTest;
-use Bolt\Extension\YourName\ExtensionName\ExtensionNameExtension;
+use Bolt\Extension\Blockmurder\CustomUploadPath\CustomUploadPathExtension;
 
-/**
- * ExtensionName testing class.
- *
- * @author Your Name <you@example.com>
- */
+ /**
+  * CustomUploadPath testing class.
+  *
+  * @author blockmurder <info@blockmurder.com>
+  */
 class ExtensionTest extends BoltUnitTest
 {
     /**
-     * Ensure that the ExtensionName extension loads correctly.
+     * Ensure that the CustomUploadPath extension loads correctly.
      */
     public function testExtensionBasics()
     {
         $app = $this->getApp(false);
-        $extension = new ExtensionNameExtension($app);
+        $extension = new CustomUploadPathExtension($app);
 
         $name = $extension->getName();
-        $this->assertSame($name, 'ExtensionName');
+        $this->assertSame($name, 'CustomUploadPath');
         $this->assertInstanceOf('\Bolt\Extension\ExtensionInterface', $extension);
     }
 
